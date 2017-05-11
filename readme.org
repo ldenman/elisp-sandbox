@@ -1,5 +1,5 @@
-# Run elisp files against emacsen on travis
-
+* Run elisp files against emacsen on travis
+  
 - I have some example emacs configuration files:
 
   - minimal.el

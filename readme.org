@@ -1,0 +1,23 @@
+# Run elisp files against emacsen on travis
+
+- I have some example emacs configuration files:
+
+  - minimal.el
+  - vanilla.el
+
+* Use an incantation to launch emacs with a particular config:
+
+** Vanilla
+  #+BEGIN_EXAMPLE
+  HOME=`mktemp -d` emacs -Q -l common.el -l vanilla.el
+  #+END_EXAMPLE
+
+** Minimal
+  #+BEGIN_EXAMPLE
+  HOME=`mktemp -d` emacs -Q -l common.el -l minimal.el
+  #+END_EXAMPLE
+
+# Much Inspiration From:
+
+- https://github.com/flycheck/emacs-travis
+

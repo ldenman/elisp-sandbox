@@ -1,4 +1,5 @@
-* Run elisp files without mucking up $HOME/.emacs.d
+
+* Run elisp files without mucking up $HOME/.emacs.d | [[https://travis-ci.org/ldenman/elisp-sandbox.svg?branch=master]]
 
 The goal here is to showcase different types of emacs configuration. Emacs uses
 $HOME/.emacs.d by default. The /run.sh/ command takes care of replacing $HOME

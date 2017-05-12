@@ -1,20 +1,19 @@
-* Run elisp files against emacsen on travis
-  
-- I have some example emacs configuration files:
+* Run elisp files without mucking up $HOME/.emacs.d
 
-  - minimal.el
-  - vanilla.el
+The goal here is to showcase different types of emacs configuration. Emacs uses
+$HOME/.emacs.d by default. The /run.sh/ command takes care of replacing $HOME
+with a temporary directory.
 
-* Use an incantation to launch emacs with a particular config:
+* Launch Emacs with a particular config:
 
 ** Vanilla
   #+BEGIN_EXAMPLE
-  HOME=`mktemp -d` emacs -Q -l common.el -l vanilla.el
+  ./run.sh vanilla.el
   #+END_EXAMPLE
 
 ** Minimal
   #+BEGIN_EXAMPLE
-  HOME=`mktemp -d` emacs -Q -l common.el -l minimal.el
+  ./run.sh minimal.el
   #+END_EXAMPLE
 
 # Much Inspiration From:

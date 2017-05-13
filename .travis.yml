@@ -1,7 +1,7 @@
-language: ruby
+#language: ruby
 sudo: false
-rvm:
-  - 2.3.0
+#rvm:
+#  - 2.3.0
 matrix:
   fast_finish: true
   allow_failures:
@@ -23,7 +23,7 @@ after_success:
  - .travis/push.sh
 script:
   - git clone https://github.com/saitoha/seq2gif.git
-  - cd seq2gif && ./configure && make && make install
+  - cd seq2gif && ./configure --prefix=../ && make && make install
   - cd ..
   - if [[ -n $EMACS_VERSION ]]; then make -f emacs-travis.mk install_emacs; fi
   - "./run-ci.sh minimal.el"

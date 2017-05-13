@@ -23,9 +23,11 @@ addons:
   apt:
     packages:
     - ttyrec
-
+    - tree
 after_success:
+ - tree .
  - .travis/push.sh
+ - tree .
 script:
   - git clone https://github.com/saitoha/seq2gif.git
   - cd seq2gif && ./configure --prefix=$TRAVIS_BUILD_DIR && make && make install

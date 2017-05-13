@@ -1,0 +1,8 @@
+(defun loader-run ()
+  (load-theme 'misterioso)
+  (load-file "common.el")
+  (load-file (getenv "FOO"))
+  (load-file "package-demo/package-demo.el")
+  (load-file (concat (getenv "FOO") ".demo"))
+  (kill-emacs 0))
+(loader-run)

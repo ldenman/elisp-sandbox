@@ -23,7 +23,7 @@ after_success:
  - .travis/push.sh
 script:
   - git clone https://github.com/saitoha/seq2gif.git
-  - cd seq2gif && ./configure --prefix=../ && make && make install
+  - cd seq2gif && ./configure --prefix=$TRAVIS_BUILD_DIR && make && make install
   - cd ..
   - if [[ -n $EMACS_VERSION ]]; then make -f emacs-travis.mk install_emacs; fi
   - "./run-ci.sh minimal.el"

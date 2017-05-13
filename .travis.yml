@@ -19,6 +19,8 @@ env:
     - EMACS_VERSION=snapshot
 before_install:
   - export PATH="$HOME/bin:$PATH"
+packages:
+  - ttyrec
 after_success:
  - .travis/push.sh
 script:

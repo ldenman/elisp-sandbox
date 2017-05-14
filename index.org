@@ -1,7 +1,7 @@
-* Demos
+* Demos - Emacs 25.2
 
 ** Vanilla
-[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/vanilla.el.gif]]
+[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/vanilla-25-2.gif]]
 
 ** Minimal
-[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/minimal.el.gif]]
+[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/minimal-25-2.gif]]

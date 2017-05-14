@@ -5,28 +5,6 @@
 
 (my-package-demo-demo)
 
-(defun switch-to-minibuffer ()
-  "Switch to minibuffer window."
-  (interactive)
-  (if (active-minibuffer-window)
-      (select-window (active-minibuffer-window))
-    (error "Minibuffer is not active")))
-
-(package-demo-define-action mini-typewriter (text &rest keys)
-  (switch-to-minibuffer)
-  (let ((speed (package-demo-get-argument 'typewriter :speed keys)))
-    (seq-doseq (c text)
-      (insert-char c)
-      (sit-for (/ 1.0 speed)))))
-
-(defun lunaryorn-new-buffer-frame ()
-  "Create a new frame with a new empty buffer."
-  (interactive)
-  (let ((buffer (generate-new-buffer "untitled")))
-    (set-buffer-major-mode buffer)
-    (display-buffer buffer '(display-buffer-pop-up-frame . nil))
-    buffer))
-
 (package-demo-define-demo vanilla-demo
   (typewriter "Welcome to Emacs")
   (kbd "RET")

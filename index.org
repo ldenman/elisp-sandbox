@@ -5,3 +5,5 @@
 
 ** Minimal
 [[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/minimal-25-2.gif]]
+** Themes
+[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/themes-25-2.gif]]

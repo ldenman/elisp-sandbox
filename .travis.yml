@@ -22,13 +22,13 @@ env:
     - EMACS_VERSION=snapshot
 before_install:
   - export PATH="$HOME/bin:$PATH"
+  - sudo add-apt-repository ppa:djcj/screenfetch
+  - sudo apt-get update
+  - sudo apt-get install screenfetch
 addons:
   apt:
     packages:
       - ttyrec
-      - screenfetch
-    sources:
-      - djcj
 after_success:
   - .travis/push.sh
 script:

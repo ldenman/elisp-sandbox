@@ -3,7 +3,7 @@
 
 
 (setq f (if (getenv "TRAVIS_BUILD_DIR") (concat (getenv "TRAVIS_BUILD_DIR") "/") default-directory))
-
+(setq sf (if (getenv "TRAVIS_BUILD_DIR") (concat f "bin/screenfetch") "screenfetch"))
 (dolist (elt (custom-available-themes))
 
   (message (format "%s theme" elt))
@@ -13,8 +13,8 @@
 
   (find-file (concat f  "examples/ruby.rb"))
   (split-window-vertically)
-  (ansi-term "/bin/bash")
-  (insert "screenfetch")
+  (ansi-term "/bin/bash") 
+  (insert sf)
   (term-send-input)
   (split-window-horizontally)
   (other-window 1)

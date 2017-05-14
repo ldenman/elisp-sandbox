@@ -8,8 +8,7 @@
   (message (format "%s theme" elt))
   (load-theme elt t)
   (find-file ".")
-  
-;;  (find-file (concat f  "examples/ruby.rb"))
+  (find-file (concat f  "examples/ruby.rb"))
 ;;  (split-window-vertically)
 ;;  (dired "/")
 ;;  (split-window-horizontally)

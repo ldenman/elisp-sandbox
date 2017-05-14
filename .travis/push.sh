@@ -6,14 +6,15 @@ setup_git() {
 }
 
 commit_website_files() {
-  mv images/ images-bak/
+  mkdir images-bak
+  mv images/* images-bak/
 }
 
 upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/ldenman/elisp-sandbox.git > /dev/null 2>&1
   git fetch origin-pages
   git checkout gh-pages
-  mv images-bak images
+  mv images-bak/* images/
   emacs index.org --batch -f org-html-export-to-html --kill
   git add index.html images/*.gif
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"

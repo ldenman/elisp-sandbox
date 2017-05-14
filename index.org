@@ -1,7 +1,7 @@
 * Demos
 
 ** Vanilla
-[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/vanilla.gif]]
+[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/vanilla.el.gif]]
 
 ** Minimal
-[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/minimal.gif]]
+[[https://raw.githubusercontent.com/ldenman/elisp-sandbox/gh-pages/images/minimal.el.gif]]

@@ -9,7 +9,7 @@ commit_website_files() {
   git fetch origin
   git add images/*.gif
   git stash
-  git checkout --track -b gh-pages origin/gh-pages
+  git checkout --track origin/gh-pages
   git stash apply
   emacs index.org --batch -f org-html-export-to-html --kill
   git add index.html

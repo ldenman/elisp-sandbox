@@ -12,10 +12,18 @@
   (pause 1)
   (kbd "RET"))
 
-(progn
-  (with-current-buffer (lunaryorn-new-buffer-frame)
-    (rename-buffer "vanilla-demo")
-    (vanilla-demo)))
+
+(defun lunaryorn-new-buffer-frame ()
+  "Create a new frame with a new empty buffer."
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (set-buffer-major-mode buffer)
+    (display-buffer buffer '(display-buffer-pop-up-frame . nil))
+    buffer))
+
+(with-current-buffer (lunaryorn-new-buffer-frame)
+  (rename-buffer "vanilla-demo")
+  (vanilla-demo))
 
 ; (package-demo-define-demo demo-magit-commit
 ;   (M-x magit-status

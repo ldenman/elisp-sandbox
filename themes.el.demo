@@ -7,6 +7,7 @@
 (dolist (elt (custom-available-themes))
   (message (format "%s theme" elt))
   (load-theme elt t)
+  (find-file ".")
   
 ;;  (find-file (concat f  "examples/ruby.rb"))
 ;;  (split-window-vertically)

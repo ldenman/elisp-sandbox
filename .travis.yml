@@ -38,4 +38,5 @@ script:
   - if [[ -n $EMACS_VERSION ]]; then make -f emacs-travis.mk install_emacs; fi
   - "./run-ci.sh minimal.el"
   - "./run-ci.sh vanilla.el"
+  - "./run-ci.sh themes.el"
 

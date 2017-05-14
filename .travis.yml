@@ -29,8 +29,8 @@ addons:
 after_success:
  - .travis/push.sh
 script:
-  - stty rows 24
-  - stty columns 80
+  - stty rows 40
+  - stty columns 120
   - echo -e "lines\ncols"|tput -S
   - stty size
   - git clone https://github.com/saitoha/seq2gif.git

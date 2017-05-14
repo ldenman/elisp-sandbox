@@ -6,9 +6,12 @@ setup_git() {
 }
 
 commit_website_files() {
-  git checkout -b gh-pages
+  git add images/*.gif
+  git stash
+  git checkout --track -b gh-pages origin/gh-pages
+  git stash apply
   emacs index.org --batch -f org-html-export-to-html --kill
-  git add images/*.gif *.html
+  git add index.html
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 }
 

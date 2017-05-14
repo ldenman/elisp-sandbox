@@ -7,7 +7,7 @@ setup_git() {
 
 commit_website_files() {
   mv images/ images-bak/
-  git checkout --track -b gh-pages origin/gh-pages
+  git checkout gh-pages
   emacs index.org --batch -f org-html-export-to-html --kill
   mv images-bak images/
   git add index.html images/*.gif

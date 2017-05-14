@@ -25,10 +25,12 @@ before_install:
 addons:
   apt:
     packages:
-    - ttyrec
-    - screenfetch
+      - ttyrec
+      - screenfetch
+    sources:
+      - djcj
 after_success:
- - .travis/push.sh
+  - .travis/push.sh
 script:
   - stty rows 24
   - stty columns 80

@@ -21,7 +21,7 @@ env:
     - EMACS_VERSION=25.2
     - EMACS_VERSION=snapshot
 before_install:
-  - export PATH="$HOME/bin:$PATH:$TRAVIS_BUILD_DIR/bin"
+  - export PATH="$HOME/bin:$PATH"
   - mkdir bin/
   - wget -P bin/screenfetch https://raw.githubusercontent.com/KittyKatt/screenFetch/master/screenfetch-dev
   - chmod +x bin/screenfetch

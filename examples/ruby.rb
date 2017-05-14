@@ -158,7 +158,7 @@ module RSpec
 
         after do
           controller.class.view_paths = @_original_path_set unless render_views?
-        end
+o        end
       end
     end
   end

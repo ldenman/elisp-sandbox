@@ -26,6 +26,7 @@ addons:
   apt:
     packages:
     - ttyrec
+    - screenfetch
 after_success:
  - .travis/push.sh
 script:

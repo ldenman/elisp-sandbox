@@ -17,7 +17,7 @@ commit_website_files() {
 
 upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/ldenman/elisp-sandbox.git > /dev/null 2>&1
-  git push -f --set-upstream origin-pages gh-pages 
+  git push --set-upstream origin-pages gh-pages 
 }
 
 setup_git

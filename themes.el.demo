@@ -2,7 +2,7 @@
 ;; until then use the builtins
 
 
-(setq f (or (getenv "TRAVIS_BUILD_DIR") default-directory))
+(setq f (or (concat (getenv "TRAVIS_BUILD_DIR") "/") default-directory))
 
 (dolist (elt (custom-available-themes))
   (message (format "%s theme" elt))

@@ -180,3 +180,4 @@ zenburn-theme
 (dolist (theme potential-themes-list1)
         (package-install theme))
 
+(menu-bar-mode -1)

@@ -33,6 +33,7 @@ after_success:
 script:
   - stty rows 80
   - echo -e "lines\ncols"|tput -S
+  - stty size
   - git clone https://github.com/saitoha/seq2gif.git
   - cd seq2gif && ./configure --prefix=$TRAVIS_BUILD_DIR && make && make install
   - cd ..

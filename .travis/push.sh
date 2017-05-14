@@ -6,7 +6,7 @@ setup_git() {
 }
 
 commit_website_files() {
-  git fetch
+  git fetch origin
   git add images/*.gif
   git stash
   git checkout --track -b gh-pages origin/gh-pages

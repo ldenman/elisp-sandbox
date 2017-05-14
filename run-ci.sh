@@ -7,5 +7,6 @@ TERM=xterm-256color TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR ELFILE=$1 HOME=$TRAVIS_BU
 ./bin/seq2gif -w 80 -h 24 -i images/$NAME.ttyrecord -o images/$NAME.gif
 else
 TERM=xterm-256color ELFILE=$1 HOME=`mktemp -d` ttyrec -e 'emacs --debug-init -nw --eval "(load-file \"loader.el\"))"' "images/$NAME.ttyrecord"
+seq2gif -w 80 -h 24 -i images/$NAME.ttyrecord -o images/$NAME.gif
 fi
 echo "done"

@@ -22,6 +22,13 @@ env:
     - EMACS_VERSION=snapshot
 before_install:
   - export PATH="$HOME/bin:$PATH:$TRAVIS_BUILD_DIR/bin"
+  - mkdir bin/
+  - wget -P bin/screenfetch https://raw.githubusercontent.com/KittyKatt/screenFetch/master/screenfetch-dev
+  - chmod +x bin/screenfetch
+  - cd screenFetch
+  - cd ..
+  - git clone https://github.com/saitoha/seq2gif.git
+  - cd seq2gif && ./configure --prefix=$TRAVIS_BUILD_DIR && make && make install && cd ..
 
 addons:
   apt:
@@ -34,13 +41,6 @@ script:
   - stty columns 80
   - echo -e "lines\ncols"|tput -S
   - stty size
-  - mkdir bin/
-  - wget -P bin/screenfetch https://raw.githubusercontent.com/KittyKatt/screenFetch/master/screenfetch-dev
-  - chmod +x bin/screenfetch
-  - cd screenFetch
-  - cd ..
-  - git clone https://github.com/saitoha/seq2gif.git
-  - cd seq2gif && ./configure --prefix=$TRAVIS_BUILD_DIR && make && make install && cd ..
   - if [[ -n $EMACS_VERSION ]]; then make -f emacs-travis.mk install_emacs; fi
   - "./run-ci.sh minimal.el"
   - "./run-ci.sh vanilla.el"

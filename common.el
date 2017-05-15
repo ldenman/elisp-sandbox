@@ -9,6 +9,8 @@
           ("org" . "http://orgmode.org/elpa/")))
 
 ;; load path for other packages
+(package-initialize)
+
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/elpa/")

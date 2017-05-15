@@ -25,6 +25,6 @@
 ;; (scroll-up-line)
 
 ;; (sit-for 1.777)
-(dired f)
+;;(dired f)
 )
 

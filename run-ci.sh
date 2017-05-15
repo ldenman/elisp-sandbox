@@ -1,5 +1,4 @@
 #!/bin/bash
-
 NAME_1=$(echo $1 |cut -f 1 -d '.')
 NAME=`echo $NAME_1-$EMACS_VERSION | tr . -`
 if [[ -n $TRAVIS_BUILD_DIR ]]; then

@@ -1,3 +1,7 @@
+
+(dired ".")
+
+
 (package-demo-define-demo my-package-demo-demo
   (M-x butterfly :speed 10 :callback ((typewriter "yes")(kbd "RET")))
   (pause 1)

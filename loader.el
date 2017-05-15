@@ -6,3 +6,4 @@
   (load-file (concat el-file ".demo"))
   (kill-emacs 0))
 (loader-run (getenv "ELFILE"))
+;(loader-run "vanilla.el")

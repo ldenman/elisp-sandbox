@@ -24,5 +24,11 @@
   (unless (package-installed-p 'dash)
     (package-refresh-contents)
     (package-install 'dash))
-  (require 'dash)
+
+  (unless (package-installed-p 'seq)
+    (package-refresh-contents)
+    (package-install 'seq))
+
+;  (require 'dash)
+;  (require 'seq)
 

@@ -34,6 +34,7 @@ upload_files() {
   emacs index.org --batch -f org-html-export-to-html --kill
 #  git add .
   git add index.html images/*.gif
+  git status
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
   git pull --rebase origin-pages gh-pages
   git push --set-upstream origin-pages gh-pages

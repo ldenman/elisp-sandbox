@@ -40,7 +40,7 @@ script:
   - echo -e "lines\ncols"|tput -S
   - stty size
   - if [[ -n $EMACS_VERSION ]]; then make -f emacs-travis.mk install_emacs; fi
-  - "./run-ci.sh minimal.el"
+#  - "./run-ci.sh minimal.el"
   - "./run-ci.sh vanilla.el"
-  - "./run-ci.sh themes.el"
+#  - "./run-ci.sh themes.el"
 

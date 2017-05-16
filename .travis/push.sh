@@ -28,7 +28,7 @@ upload_files() {
   git pull
   ls images/
   git status
-  cat foo | xargs -0 -I {} git rm images/{}
+  cat foo | xargs -I {} git rm images/{}
   git status
 #  emacs index.org --batch -f org-html-export-to-html --kill
 #  git add index.html images/*.gif

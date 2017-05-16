@@ -12,7 +12,7 @@ upload_files() {
   git clean -f images/
   git stash
   git checkout gh-pages
-  git pull --rebase
+  git pull
   git stash apply
   emacs index.org --batch -f org-html-export-to-html --kill
   git add index.html

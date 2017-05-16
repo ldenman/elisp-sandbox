@@ -9,7 +9,7 @@ upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/ldenman/elisp-sandbox.git > /dev/null 2>&1
   git fetch origin-pages
   mkdir images-tmp
-  for f in `git diff --cached --name-only |grep -e *.gif`; do
+  for f in `git diff --name-only |grep -e *.gif`; do
     cp $f images-tmp/
   done
   git stash

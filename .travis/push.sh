@@ -20,6 +20,7 @@ upload_files() {
 #  mv images2/*.gif images/
 #  git status
   git status
+  ls images
 #  emacs index.org --batch -f org-html-export-to-html --kill
 #  git add index.html images/*.gif
 #  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"

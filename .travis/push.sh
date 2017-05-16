@@ -22,8 +22,8 @@ upload_files() {
   ls images
   mkdir images2
   cp images/*.gif images2/
-  env
   images=find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2
+  ls images/
   rm -rf images/
   git checkout gh-pages
   git pull

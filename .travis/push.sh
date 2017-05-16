@@ -37,12 +37,25 @@ upload_files() {
   cp images2/* images/
   cp ttyrecords/* images/
   emacs index.org --batch -f org-html-export-to-html --kill
-#  git add .
+  #  git add .
   git add index.html images/*
   git status
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-  git pull --rebase --set-upstream origin-pages gh-pages
-  git push --set-upstream origin-pages gh-pages
+
+  REALGIT=`which git`
+  RETRIES=3
+  DELAY=10
+  COUNT=1
+  while [ $COUNT -lt $RETRIES ]; do
+    git pull --rebase --set-upstream origin-pages gh-pages
+    git push --set-upstream origin-pages gh-pages
+    if [ $? -eq 0 ]; then
+        RETRIES=0
+        break
+    fi
+    let COUNT=$COUNT+1
+    sleep $DELAY
+  done
 }
 
 setup_git

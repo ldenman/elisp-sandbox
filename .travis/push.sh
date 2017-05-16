@@ -6,15 +6,15 @@ setup_git() {
 }
 
 upload_files() {
-
   git remote add origin-pages https://${GH_TOKEN}@github.com/ldenman/elisp-sandbox.git > /dev/null 2>&1
   git fetch origin-pages
-  git add images/
+  git add images/*.gif
   git stash
   git checkout gh-pages
+  git pull --rebase
   git stash apply
   emacs index.org --batch -f org-html-export-to-html --kill
-  git add index.html images/*.gif
+  git add index.html
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
   git push --set-upstream origin-pages gh-pages
 }

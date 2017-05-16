@@ -7,6 +7,7 @@ mkdir -p $TRAVIS_BUILD_DIR/images2
 mkdir -p $TRAVIS_BUILD_DIR/ttyrecords
 HOME=$TRAVIS_BUILD_DIR emacs --batch --eval "(load-file \"preloader.el\")"
 
+
 #TERM=xterm-256color TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR ELFILE=$1 HOME=$TRAVIS_BUILD_DIR ttyrec -e 'emacs --debug-init -nw --eval "(load-file \"loader.el\"))"' "$TRAVIS_BUILD_DIR/ttyrecords/$NAME.ttyrecord"
 TERM=xterm-256color ttyrec -e '/bin/bash -c "ls; exit;"' "$TRAVIS_BUILD_DIR/ttyrecords/$NAME.ttyrecord"
 

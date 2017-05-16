@@ -22,13 +22,13 @@ upload_files() {
   ls images
   mkdir images2
   cp images/*.gif images2/
-  export images="$(find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2)"
+  find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2 > foo
   rm -rf images/
   git checkout gh-pages
   git pull
   ls images/
   git status
-  echo $images | xargs -0 -I {} git rm images/{}
+  cat foo | xargs -0 -I {} git rm images/{}
   git status
 #  emacs index.org --batch -f org-html-export-to-html --kill
 #  git add index.html images/*.gif

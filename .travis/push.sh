@@ -12,7 +12,7 @@ upload_files() {
   mkdir -p images2
   git status
   var=`$EMACS_VERSION`|tr . -
-  find images -name "*$var*"|xargs -I {} mv {} images2/*.gif
+  find images -name "*$var*"|xargs -I {} mv {} images2/
   git status
   git checkout gh-pages
   git pull origin-pages gh-pages

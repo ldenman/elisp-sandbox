@@ -14,7 +14,7 @@ upload_files() {
   git checkout gh-pages
   git pull origin-pages gh-pages
   git stash apply
-  git checkout --ours images/*
+  git checkout --theirs images/*
   emacs index.org --batch -f org-html-export-to-html --kill
   git add index.html images/*.gif
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"

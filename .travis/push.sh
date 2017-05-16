@@ -36,7 +36,7 @@ upload_files() {
   git add index.html images/*.gif
   git status
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-  git pull --rebase origin-pages gh-pages
+  git pull origin-pages gh-pages
   git push --set-upstream origin-pages gh-pages
 }
 

@@ -23,10 +23,10 @@ upload_files() {
   mkdir images2
   cp images/*.gif images2/
   images=find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2
-  ls images/
   rm -rf images/
   git checkout gh-pages
   git pull
+  ls images/
   git status
   echo $images | xargs -0 -I {} git rm images/{}
   git status

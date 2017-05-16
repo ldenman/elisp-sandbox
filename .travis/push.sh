@@ -11,16 +11,13 @@ upload_files() {
   git fetch origin-pages
   mkdir -p images2
   git status
-  for f in `git diff --name-only |grep -e *.gif`; do
-    echo $f
-    cp $f images2/
-  done
+  var=`$EMACS_VERSION`|tr . -
+  find images -name "*$var*"|xargs -I {} mv {} images2/*.gif
   git status
   git checkout gh-pages
   git pull origin-pages gh-pages
   mv images2/*.gif images/
   git status
-  git rm images/
   git add images/*.gif
   emacs index.org --batch -f org-html-export-to-html --kill
   git add index.html images/*.gif

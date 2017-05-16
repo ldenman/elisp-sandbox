@@ -1,7 +1,6 @@
 #!/bin/sh
 set -x 
 
-sleep 30
 
 setup_git() {
   git config --global user.email "travis@travis-ci.org"
@@ -29,7 +28,7 @@ upload_files() {
   find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2 > foo
   git clean -fd images/ .bundle/ .emacs.d/ .gnupg/
   git checkout gh-pages
-  git pull
+  git pull origin-pages gh-pages
   ls images/
   git status
   cat foo | xargs -I {} git rm images/{}

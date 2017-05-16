@@ -1,0 +1,46 @@
+#language: ruby
+sudo: false
+#rvm:
+#  - 2.3.0
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: EMACS_VERSION=snapshot
+    - env: EMACS_VERSION=24.5
+cache:
+  - bundler
+  - directories:
+      - "$HOME/emacs"
+env:
+  global:
+    - secure: "Fs8yFfRs/LOZ3zegVkQ/2IRZVA/eWRpG83hLJHobC6KPTnvtVmEBtXLOwP8mlerbestent+IrJNT+IeFJzXwLfY9ICn2DHtQvyiMRFa+twKaGpKjA4l9z0m3tApgo3ZRkCSeIV1UCDCxouJdUvCxjY/hqnjHn7ZcShW2nhA+rCNy79v1XLsSx2a2U5My7JASTIzzmWTSYShl0G44++t8kcFgBr2YAcXNfYSwOwChVQbLLhvdIwEc4APQxaDf+nfC/Y/jEHY7oI3Z8RVh2hfEK8GuVYaPf5CPpQtWBJmCCNK3qo7wgYHiZdiVFeEJ+wi5z2rRjF522Wrd0217vTthr+tTairaH7vsOUkuYsRZC9BYpOMwxlGdInE272brKlhjuYipEvuPcHsjSlUATKbXhJkgKZxjQaBrM3v9zQX9RZJBuARCcJmKbZPp9mzCflCYwlT+GHOAlvbIe5Ua01m/+P2Ewf1D7XhWldyGPjXYYnB3JGZ3Y50PItqRcJZ6DZTsLX6VQdVB7NfgWWzFnF+SIlODdA0VpJaqPYGox0+HCFRd8bkij69gl+BhUZCqNfjj4FaQvTsdzqbGgV6GEMEQym6u5BKcs3LNdizczCZhyzbu3T1cfqZ9XZG29CqTSeLwPmRFsHqlK7d+047YlGanTeaBuGl5p6C/82pYF2Z33UI="
+  matrix:
+    - EMACS_VERSION=24.5
+    - EMACS_VERSION=25.1-rc2
+    - EMACS_VERSION=25.1
+    - EMACS_VERSION=25.2
+    - EMACS_VERSION=snapshot
+before_install:
+  - export PATH="$HOME/bin:$PATH"
+  - mkdir bin/
+  - wget -P bin/screenfetch https://raw.githubusercontent.com/KittyKatt/screenFetch/master/screenfetch-dev
+  - chmod +x bin/screenfetch
+  - git clone https://github.com/saitoha/seq2gif.git
+  - cd seq2gif && ./configure --prefix=$TRAVIS_BUILD_DIR && make && make install && cd ..
+
+addons:
+  apt:
+    packages:
+      - ttyrec
+after_success:
+  - .travis/push.sh
+script:
+  - stty rows 24
+  - stty columns 80
+  - echo -e "lines\ncols"|tput -S
+  - stty size
+  - if [[ -n $EMACS_VERSION ]]; then make -f emacs-travis.mk install_emacs; fi
+  - "./run-ci.sh minimal.el"
+  - "./run-ci.sh vanilla.el"
+  - "./run-ci.sh themes.el"
+

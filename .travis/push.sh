@@ -22,7 +22,7 @@ upload_files() {
   ls images
   mkdir images2
   cp images/*.gif images2/
-  export images=$(find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2)
+  export images=`find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2`
   rm -rf images/
   git checkout gh-pages
   git pull

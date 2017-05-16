@@ -12,7 +12,7 @@ upload_files() {
   for f in `git diff --name-only |grep -e *.gif`; do
     cp $f images-tmp/
   done
-  git clean -f
+  rm -rf images/*
   git checkout gh-pages
   git pull origin-pages gh-pages
   mv images-tmp/*.gif images/

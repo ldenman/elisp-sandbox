@@ -12,11 +12,10 @@ upload_files() {
   git clean -f images/
   git stash
   git checkout gh-pages
-  git stash apply
+  git checkout stash -- .
   emacs index.org --batch -f org-html-export-to-html --kill
   git add index.html
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-  git pull -s recursive -X rebase
   git push --set-upstream origin-pages gh-pages
 }
 

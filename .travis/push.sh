@@ -15,12 +15,18 @@ upload_files() {
 #  var=`$EMACS_VERSION`|tr . -
 #  find images -name "*$var*"|xargs -I {} mv {} images2/
 #  git status
-#  git checkout gh-pages
 #  git pull origin-pages gh-pages
 #  mv images2/*.gif images/
 #  git status
   git status
   ls images
+  mkdir images2
+  cp images/*.gif images2/
+  env
+  images=find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2
+  git checkout gh-pages
+  echo $images | xargs -0 -I {} git rm images/{}
+  git status
 #  emacs index.org --batch -f org-html-export-to-html --kill
 #  git add index.html images/*.gif
 #  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"

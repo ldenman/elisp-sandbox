@@ -32,8 +32,8 @@ upload_files() {
   git status
   cp images2/* images/
   emacs index.org --batch -f org-html-export-to-html --kill
-  git add .
-#  git add index.html images/*.gif
+#  git add .
+  git add index.html images/*.gif
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
   git push --set-upstream origin-pages gh-pages
 }

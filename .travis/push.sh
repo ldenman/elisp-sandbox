@@ -47,7 +47,7 @@ upload_files() {
   DELAY=10
   COUNT=1
   while [ $COUNT -lt $RETRIES ]; do
-    git pull --rebase --set-upstream origin-pages gh-pages
+    git pull --rebase origin-pages gh-pages
     git push --set-upstream origin-pages gh-pages
     if [ $? -eq 0 ]; then
         RETRIES=0

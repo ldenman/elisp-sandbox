@@ -9,6 +9,7 @@ upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/ldenman/elisp-sandbox.git > /dev/null 2>&1
   git fetch origin-pages
   git add images/*.gif
+  git clean -f images/
   git stash
   git checkout gh-pages
   git pull --rebase

@@ -24,6 +24,7 @@ upload_files() {
   cp images/*.gif images2/
   find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2 > foo
   rm -rf images/
+  git clean -fd .bundle/ .emacs.d/ .gnupg/
   git checkout gh-pages
   git pull
   ls images/

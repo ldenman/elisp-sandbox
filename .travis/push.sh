@@ -46,7 +46,5 @@ upload_files() {
 }
 
 setup_git
-echo "setup git"
 upload_files
-echo "git push"
-echo "done"
+

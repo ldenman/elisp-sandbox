@@ -24,8 +24,8 @@ upload_files() {
 #  git status
   git status
   ls images
-  mkdir images2
-  cp images/* images2/
+#  mkdir images2
+#  cp images/* images2/
   find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2 > foo
   git clean -fd images/ .bundle/ .emacs.d/ .gnupg/
   git checkout gh-pages

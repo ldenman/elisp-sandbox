@@ -24,6 +24,7 @@ upload_files() {
   cp images/*.gif images2/
   env
   images=find images2 -type f -name '*.gif' | xargs -0 -I {} echo {} | cut -d '/' -f 2
+  rm -rf images/
   git checkout gh-pages
   echo $images | xargs -0 -I {} git rm images/{}
   git status

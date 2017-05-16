@@ -30,10 +30,12 @@ upload_files() {
   git status
   cat foo | xargs -I {} git rm images/{}
   git status
-#  emacs index.org --batch -f org-html-export-to-html --kill
+  cp images2/* images/
+  emacs index.org --batch -f org-html-export-to-html --kill
+  git add .
 #  git add index.html images/*.gif
-#  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-#  git push --set-upstream origin-pages gh-pages
+  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  git push --set-upstream origin-pages gh-pages
 }
 
 setup_git

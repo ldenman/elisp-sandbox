@@ -30,6 +30,7 @@ upload_files() {
   git status
   cat foo | xargs -I {} git rm images/{}
   git status
+  mkdir -p images/
   cp images2/* images/
   emacs index.org --batch -f org-html-export-to-html --kill
 #  git add .

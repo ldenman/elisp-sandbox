@@ -31,7 +31,7 @@ upload_files() {
   git pull origin-pages gh-pages
   ls images/
   git status
-  cat foo | xargs -I {} git rm images/{}
+#  cat foo | xargs -I {} git rm images/{}
   git status
   mkdir -p images/
   git mv images2/* images/

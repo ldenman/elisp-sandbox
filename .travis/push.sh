@@ -34,8 +34,8 @@ upload_files() {
 #  cat foo | xargs -I {} git rm images/{}
   git status
   mkdir -p images/
-  git mv images2/* images/
-  git mv ttyrecords/* images/
+  cp images2/* images/
+  cp ttyrecords/* images/
   emacs index.org --batch -f org-html-export-to-html --kill
   #  git add .
   git add index.html images/*
